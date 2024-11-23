@@ -1,0 +1,72 @@
+﻿@using SliderApplication.Models
+@model Slider
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Slider Index</h2>
+
+@using (Html.BeginForm("SaveSlider", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ {
+    <table>
+        <tr>
+            <th>
+                Slider Id
+            </th>
+            <td>
+                @Html.TextBoxFor(m=>m.SliderId)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m=>m.SliderId)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Name
+            </th>
+            <td>
+                @Html.TextBoxFor(m=>m.Name)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Status
+            </th>
+            <td>
+                @Html.CheckBoxFor(m=>m.Status,true)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(m=>m.Status)
+                -
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Select Slider Image
+            </th>
+            <td>
+                <input type="file"
+                       name="Files"
+                       id="Files"
+                       />
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="reset"
+                   value="Clear"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit"
+                       value="Upload Slider"
+                       />
+            </td>
+        </tr>
+    </table>
+ }
+
